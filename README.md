@@ -16,4 +16,4 @@ Phần mềm quản lý tài sản chung
   - Nguyễn Quang Linh
   
 # Tên phần mềm: Quản lý tài sản
-# Mô tả tổng quan phần mềm:[LINK](https://drive.google.com/open?id=1v4U513fdYMG78v4x6P5xcf87NjXSkquc)
+# Mô tả tổng quan phần mềm:[LINK](https://drive.google.com/open?id=1Cy9ELlKxA3NZLgN54NKFk9BaA310vPn2)
