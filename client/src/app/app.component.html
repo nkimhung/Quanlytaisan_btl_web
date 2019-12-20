@@ -1,0 +1,85 @@
+<!-- nav -->
+  <nav class="navbar navbar-expand-lg navbar-dark " *ngIf="currentUser" style="background-color: #05637F">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" (click)="isShown = !isShown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'show': isShown }">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="nav-item nav-link" routerLink="/" *ngIf="isAdmin || isUser"><i class="fas fa-home"></i>  Home</a></li>
+        <li><a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin" (click)="keo()">Admin</a></li>
+        <li><a class="nav-item nav-link" routerLink="/register" *ngIf="isAdmin" (click)="keo()">Register</a></li>
+        <li><a class="nav-item nav-link" routerLink="/register-employee" *ngIf="isAdmin" (click)="keo()">Register employee</a></li>
+        <li><a class="nav-item nav-link" routerLink="/product" *ngIf="isAdmin" (click)="keo()">Product</a></li>
+        <li><a class="nav-item nav-link" routerLink='/product-user' *ngIf="isUser" (click)="keo1()"><i class="fas fa-plus"></i> Borrow product</a></li>
+
+        <li><a class="nav-item nav-link" routerLink="/revoke" *ngIf="isAdmin" (click)="keo()">Revoke</a></li>
+        <li><a class="nav-item nav-link" routerLink="/statistic" *ngIf="isAdmin" (click)="keo()">Statistic</a></li>
+        <li><a class="nav-item nav-link" routerLink='/notification' *ngIf="isAdmin" (click)="keo()">Notification <sup style="color:red;">{{me}}</sup></a></li>
+
+        <li>
+          <a class="nav-item nav-link" routerLink='/myCart' *ngIf="isUser" (click)="keo1()">
+            <i class="fas fa-cart-plus"><sub> {{cart}}</sub></i>
+            <b> Cart </b>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item nav-link" routerLink='/product-order' *ngIf="isUser" (click)="keo1()">
+            <i class="fas fa-bell"><sup>{{msg}}</sup> </i>
+            Notification
+          </a>
+        </li>
+        <li><a class="nav-item nav-link" *ngIf="!isAdmin && !isUser" (click)="logout()">Login</a></li>
+
+      </ul>
+      <div *ngIf="isAdmin || isUser" ng ngbDropdown class="navbar-nav ml-auto nav-flex-icons" >
+        <div style="min-width: 180px;text-align: right;" class="text-white dropdown-toggle  p-0 mr-sm-2" data-toggle="dropdown" id="dropdownBasic2" ngbDropdownToggle>
+          <img  style="width:40px; height:40px;" src={{url}} alt="profile" class="rounded-circle img-profile">
+          <p class="d-inline p-1 border-left">{{data.fullName}}</p>
+
+        </div>
+        <div class="dropdown-menu dropdown-menu-right shadow position-absolute" ngbDropdownMenu aria-labelledby="dropdownBasic2">
+          <p class="dropdown-item" data-toggle="modal" data-target="#thongTinTaiKhoan" (click)="open1()">
+            <i class="fas fa-user-edit pr-2" aria-hidden="true" style="color:black"></i>Thông tin tài khoản
+          </p>
+          <p class="dropdown-item" data-toggle="modal" data-target="#doiMatKhau" (click)="open2()">
+            <i class="fa fa-lock pr-2" aria-hidden="true"></i>Đôi mât khẩu
+          </p>
+          <p (click)="logout()" class="dropdown-item">
+            <i class="fas fa-sign-out-alt pr-2" aria-hidden="true" style="color:black"></i>Đăng xuất
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+    <!--<ul class="navbar-nav ml-auto nav-flex-icons">
+    <li class="nav-item">
+      <a class="nav-link waves-effect waves-light">
+        1
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+    <li class="nav-item avatar dropdown">
+      <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="img-fluid rounded-circle z-depth-0">
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg-right dropdown-purple" aria-labelledby="navbarDropdownMenuLink-5">
+        <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Action</a>
+        <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Another action</a>
+        <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Something else here</a>
+      </div>
+    </li>
+  </ul>-->
+   
+  </nav>
+
+<!-- main app container -->
+<div class="jumbotron">
+    <!-- <div class="container">
+        <div class="row"> -->
+    <!-- <div class="col-md-6 offset-md-3"> -->
+    <router-outlet></router-outlet>
+    <!-- </div> -->
+    <!-- </div>
+    </div> -->
+</div>

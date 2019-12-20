@@ -1,0 +1,55 @@
+<h1>Admin</h1>
+<p>This page can only be accessed by administrators.</p>
+<div class="form-group col-sm-4 input-group">
+  <input type="text" placeholder="search..." class="search" [(ngModel)]="searchValue" />
+  <select class="form-control" name="type" id="type" [(ngModel)]="type">
+  <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
+  </select>
+</div>
+
+<!-- <div>
+    <button (click)="changeEmployeeName()" class="btn btn-primary">
+
+    </button>
+</div> -->
+<div class="table-responsive table-container">
+  <table class="table table-bordered table-striped table-hover " >
+    <thead class="thead-light">
+      <tr>
+        <th class="th-sm">Full Name</th>
+        <th class="th-sm"> Code</th>
+        <th class="th-sm">Gender</th>
+        <th class="th-sm">Email</th>
+        <th class="th-sm">Phone</th>
+        <th class="th-sm">Address</th>
+        <th class="th-sm">Birth Date</th>
+        <th class="th-sm">Job Title</th>
+        <th class="th-sm">Status</th>
+        <th class="th-sm">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees | filter :type : searchValue : 'includes'| paginate: { itemsPerPage: 10, currentPage: p }">
+          <td>{{employee.fullName}}</td>
+          <td>{{employee.code}}</td>
+          <td>{{employee.gender}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.phone}}</td>
+          <td>{{employee.address}}</td>
+          <td>{{employee.birth}}</td>
+          <td>{{employee.jobTitle}}</td>
+          <td>{{employee.status}}</td>
+
+          <td>
+            <button (click)="openPopup1(employee)" class="btn btn-info">View</button>
+            <button (click)="openPopup2(employee)" class="btn btn-info">Update</button>
+            <!-- <button (click)="updateProduct(product)" style="margin-left: 20px;" class="btn btn-info">
+                Edit</button>
+            <button (click)="getProductById(product)" style="margin-left: 20px;"
+                class="btn btn-info">Info</button> -->
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -1,0 +1,69 @@
+<h1>Product</h1>
+<div class="form-group col-sm-4 input-group">
+  <input class="form-control search" type="text" name="searchText" [(ngModel)]="searchText" placeholder="&#61442;  Tìm kiếm theo trường" />
+  <select class="form-control" name="type" id="type" [(ngModel)]="type">
+    <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
+  </select>
+  <button (click)="openPopup1(product)" class="btn btn-info"> Created product</button>
+</div>
+<!-- <div>
+    <button (click)="changeEmployeeName()" class="btn btn-primary">
+
+    </button>
+</div> -->
+<div class="table-responsive table-container">
+  <table class="table table-dark table-hover table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th (click)="sortType = 'name'; sortReverse = !sortReverse">
+          Name
+          <span *ngIf="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+
+          <span *ngIf="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th (click)="sortType = 'description'; sortReverse = !sortReverse">
+          Description
+          <span *ngIf="sortType == 'description' && !sortReverse" class="fa fa-caret-down"></span>
+          <span *ngIf="sortType == 'description' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th (click)="sortType = 'timeCreated'; sortReverse = !sortReverse">
+          Date Create
+          <span *ngIf="sortType == 'timeCreated' && !sortReverse" class="fa fa-caret-down"></span>
+          <span *ngIf="sortType == 'timeCreated' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th (click)="sortType = 'timeModified'; sortReverse = !sortReverse">
+          Last Update
+          <span *ngIf="sortType == 'timeModified' && sortReverse" class="fa fa-caret-down"></span>
+          <span *ngIf="sortType == 'timeModified' && !sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th (click)="sortType = 'type'; sortReverse = !sortReverse">
+          Type
+          <span *ngIf="sortType == 'type' && !sortReverse" class="fa fa-caret-down"></span>
+          <span *ngIf="sortType == 'type' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th (click)="sortType = 'amountInWarehouse'; sortReverse = !sortReverse">
+          Amount In Warehouse
+          <span *ngIf="sortType == 'amountInWarehouse' && !sortReverse" class="fa fa-caret-down"></span>
+          <span *ngIf="sortType == 'amountInWarehouse' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products | filter :type : searchText : 'includes' | orderBy: sortType : sortReverse : true | paginate: { itemsPerPage: 15, currentPage: p }" (dblclick) ="openPopup3(product)">
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.dateCreated}}</td>
+        <td>{{product.lastUpdate}}</td>
+        <td>{{product.type}}</td>
+        <td>{{product.amountInWarehouse}}</td>
+
+        <td>
+          <button (click)="openPopup4(product)" class="btn btn-info">Liquidate</button>
+          <button (click)="openPopup2(product)" style="margin-left: 20px;" class="btn btn-info">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

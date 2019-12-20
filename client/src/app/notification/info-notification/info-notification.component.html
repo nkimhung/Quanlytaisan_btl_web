@@ -1,0 +1,48 @@
+<div class="container">
+  <span class="h3 mb-3 font-weight-normal">Thông tin đơn hàng</span>
+  <button type="button" (click)="close()" class="closes"><i class="fas fa-times"></i></button>
+  <!--<div class"row">
+    <img src="'http://localhost:4000/'+{{productByID.image}}" alt={{productByID.name}} />
+  </div>-->
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Người tạo</label>
+      <input type="text" class="form-control" name="fullName" placeholder="fullName" value={{info.fullName}} [readonly]="true" />
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="name">Ngày tạo</label>
+      <input type="date" class="form-control" name="dateCreated" placeholder="Date Created" value={{info.dateCreated}} [readonly]="true" />
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="form-group col-sm-4">
+      <label for="name">Tên sản phẩm</label>
+      <input type="text" class="form-control " name="name" placeholder="enter name" value={{info.name}} [readonly]="true">
+    </div>
+  </div>
+  <div class="row">
+    <img src={{url}} alt={{info.name}} />
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Amount in Warehouse</label>
+      <input type="number" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value={{info.amountInWarehouse}} [readonly]="true" />
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="name">Amount Borrowed</label>
+      <input class="form-control" name="type" id="type" value={{info.amount}} [readonly]="true" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Date Borrow</label>
+      <input type="date" class="form-control" name="timeCreated" placeholder="Time Created" value={{info.timeBorrow}} [readonly]="true" />
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="name">Date Return</label>
+      <input type="date" class="form-control" name="Last update" placeholder="Last Update Date" value={{info.timeReturn}} [readonly]="true" />
+    </div>
+  </div>
+
+</div>

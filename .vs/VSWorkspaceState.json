@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\app",
+    "\\client\\src\\app\\home\\change-avatar",
+    "\\client\\src\\app\\notification",
+    "\\client\\src\\app\\order-detail",
+    "\\client\\src\\app\\register-employee",
+    "\\client\\src\\app\\_services",
+    "\\test"
+  ],
+  "SelectedNode": "\\client\\src\\app\\register-employee\\register-employee.component.html",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,56 @@
+<div class="form-group col-sm-6 input-group">
+  <input class="form-control search" type="text" name="searchText" [(ngModel)]="searchText" placeholder="&#61442;  Tìm kiếm theo trường" />
+  <select class="form-control" name="type" id="type" [(ngModel)]="type">
+    <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
+  </select>
+</div>
+<!-- <div>
+    <button (click)="changeEmployeeName()" class="btn btn-primary">
+
+    </button>
+</div> -->
+<div class="table-responsive table-container">
+  <table class="table table-dark table-hover table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>Amount
+        </th>
+        <th>Borrow Date</th>
+        <th (click)="sortType = 'timeReturn'; sortReverse = !sortReverse">
+          Return Date
+          <span *ngIf="sortType == 'timeReturn' && !sortReverse" class="fa fa-caret-down"></span>
+
+          <span *ngIf="sortType == 'timeReturn' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th >
+          Created Date
+          
+        </th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderDetail of orderDetails | filter :type : searchText : 'includes' | orderBy: sortType : sortReverse : true | paginate: { itemsPerPage: 15, currentPage: p }" (dblclick)="openPopup1(orderDetail)">
+        <td>{{orderDetail.name}}</td>
+        <td>{{orderDetail.amount}}</td>
+        <td>{{orderDetail.timeBorrow}}</td>
+        <td>{{orderDetail.timeReturn}}</td>
+        <td>{{orderDetail.dateCreated}}</td>
+        <td>{{orderDetail.status}}</td>
+        <td style="color:red">
+          <b>{{orderDetail.msg}}</b>
+          <!-- <button (click)="updateProduct(product)" style="margin-left: 20px;" class="btn btn-info">
+      Edit</button>
+  <button (click)="getProductById(product)" style="margin-left: 20px;"
+      class="btn btn-info">Info</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+

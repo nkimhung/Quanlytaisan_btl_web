@@ -1,0 +1,59 @@
+<div class="form-group col-sm-4 input-group">
+  <input class="form-control search" type="text" name="searchText" [(ngModel)]="searchText" placeholder="&#61442;  Tìm kiếm theo trường" />
+  <select class="form-control" name="type" id="type" [(ngModel)]="type">
+    <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
+  </select>
+</div>
+<!-- <div>
+    <button (click)="changeEmployeeName()" class="btn btn-primary">
+
+    </button>
+</div> -->
+<div class="table-responsive table-container">
+  <table class="table table-dark table-hover table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th (click)="sortType = 'name'; sortReverse = !sortReverse">
+          Name
+          <span *ngIf="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+
+          <span *ngIf="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th (click)="sortType = 'amount'; sortReverse = !sortReverse">
+          Amount
+          <span *ngIf="sortType == 'amount' && !sortReverse" class="fa fa-caret-down"></span>
+
+          <span *ngIf="sortType == 'amount' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th>Borrow Date</th>
+        <th>Return Date</th>
+        <th (click)="sortType = 'timeCreated'; sortReverse = !sortReverse">
+          Created Date
+          <span *ngIf="sortType == 'timeCreated' && !sortReverse" class="fa fa-caret-down"></span>
+
+          <span *ngIf="sortType == 'timeCreated' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderDetail of orderDetails | filter :type : searchText : 'includes' | orderBy: sortType : sortReverse : true | paginate: { itemsPerPage: 15, currentPage: p }" (dblclick)="openPopup1(orderDetail)">
+        <td>{{orderDetail.name}}</td>
+        <td>{{orderDetail.amount}}</td>
+        <td>{{orderDetail.timeBorrow}}</td>
+        <td>{{orderDetail.timeReturn}}</td>
+        <td>{{orderDetail.dateCreated}}</td>
+        <td>
+          <button (click)="updateStatusOrderDetail(orderDetail)" class="btn btn-info">ACCEPT</button>
+          <button (click)="delete(orderDetail)" class="btn btn-info">Delete</button>
+          <!-- <button (click)="updateProduct(product)" style="margin-left: 20px;" class="btn btn-info">
+              Edit</button>
+          <button (click)="getProductById(product)" style="margin-left: 20px;"
+              class="btn btn-info">Info</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

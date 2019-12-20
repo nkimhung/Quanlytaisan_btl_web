@@ -1,0 +1,45 @@
+<!-- <div class="container">
+  <div class="row"> -->
+<!-- <div class="col-md-6 mt-5 mx-auto"> -->
+  <div class="container">
+    <span class="h3 mb-3 font-weight-normal">Mượn sản phẩm</span>
+    <button type="button" (click)="close()" class="closes"><i class="fas fa-times"></i></button>
+    <!-- <select class="form-control" name="employeeID" id="employee" ngModel>
+    <option *ngFor="let item of employeeList" [value]="item.id">{{item.fullName}}</option>
+  </select> -->
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="jobStartDate">Date borrow <i>*</i></label>
+        <input type="date" class="form-control {{S}}" name="dateBorrow" [(ngModel)]="data.dateBorrow" />
+        <i *ngIf="message.S">
+          {{message.S}}
+        </i>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="jobEndDate">Date return <i>*</i></label>
+        <input type="date" class="form-control {{E}}" name="dateReturn" [(ngModel)]="data.dateReturn" />
+        <i *ngIf="message.E">
+          {{message.E}}
+        </i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="name">Amount in Warehouse</label>
+        <input type="number" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value={{info.amountInWarehouse}} [readonly]="true" />
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="name">Amount Borrow</label>
+        <input type="number" class="form-control {{A}}" name="amount" id="type" [(ngModel)]="data.amount" max={{info.amountInWarehouse}} />
+        <i *ngIf="message.A">
+          {{message.A}}
+        </i>
+      </div>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <button type="submit" class="btn btn-lg btn-primary btn-block mb-3" (click)="borrow()" >Borrow!</button>
+
+  </div>
+    <!-- </div> -->
+    <!-- </div>
+  </div> -->

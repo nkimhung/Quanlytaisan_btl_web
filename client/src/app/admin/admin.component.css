@@ -1,0 +1,27 @@
+table {
+  background-color: #00a1ff;
+  height:200px !important;
+}
+button{
+  margin:5px;
+}
+td,th{
+  border: 1px solid #d0cbcb;
+  padding: 0px;
+  text-align: center;
+  vertical-align: middle;
+}
+.search{
+  margin-right:10px;
+}
+select{
+  width:50px !important;
+  min-width:50px!important;
+}
+
+th {
+  height: 45px;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}

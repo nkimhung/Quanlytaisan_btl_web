@@ -1,0 +1,44 @@
+<div class="container">
+  <span class="h3 mb-3 font-weight-normal">Update Product</span>
+  <button type="button" (click)="close()" class="closes"><i class="fas fa-times"></i></button>
+  <!--<div class"row">
+    <img src="'http://localhost:4000/'+{{productByID.image}}" alt={{productByID.name}} />
+  </div>-->
+  <div class="row">
+    <img src={{url}} alt={{productByID.name}} />
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <label for="name">tên sản phẩm <i>*</i></label>
+      <input type="text" class="form-control {{N}}" name="name" placeholder="enter name" [(ngModel)]="productByID.name">
+      <i *ngIf="message.N">tên sản phẩm không thể trống!</i>
+    </div>
+    <div class="form-group col-sm-8">
+      <label for="name">description</label>
+      <textarea cols="70" rows="5" type="text" class="form-control" name="description" placeholder="enter description" [(ngModel)]="productByID.description"></textarea>
+    </div>
+    <form>
+      <div class="form-group col-sm-8">
+        <label for="file">Choose new image </label>
+        <input type="file" name="file" multiple (change)="select($event)" />
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Amount in warehouse <i>*</i></label>
+      <input type="number" class="form-control {{M}}" name="amountinwarehouse" placeholder="enter amountinwarehouse" [(ngModel)]="productByID.amountInWarehouse">
+      <i *ngIf="message.M">số lượng trong kho không hợp lệ!</i>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="name">type<i>*</i></label>
+      <select class="form-control {{T}}" name="type" id="type" [(ngModel)]="productByID.type">
+        <option *ngFor="let type of types" [value]="type.type">{{type.type}}</option>
+      </select>
+      <i *ngIf="message.T">tên sản phẩm không thể trống!</i>
+    </div>
+  </div>
+  <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="updateProduct()">Update !</button>
+
+</div>

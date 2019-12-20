@@ -1,0 +1,20 @@
+table {
+  background-color: #00a1ff;
+  margin-bottom:10px;
+}
+
+button {
+  margin: 5px;
+}
+
+td, th {
+  border: 1px solid #d0cbcb;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fa {
+  float: right;
+}
+b{
+}

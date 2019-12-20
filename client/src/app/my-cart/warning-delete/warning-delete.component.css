@@ -1,0 +1,30 @@
+body
+{
+}
+span{
+  margin-right:35px;
+  text-align:center;
+  margin-top:20px!important;
+  margin-left:10px;
+}
+.closes {
+  float: right;
+  height: 30px !important;
+  margin-top: 0px;
+  color: red;
+  height: 30px;
+  margin-right: -15px;
+}
+
+  .closes:hover {
+    border: solid 1px red;
+  }
+  button{
+   margin:40px;
+  }
+.choose {
+  text-align: center;
+}
+.choose button{
+  width:80px;
+}

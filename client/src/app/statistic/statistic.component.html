@@ -1,0 +1,65 @@
+<div >
+ <div class="chart">
+   <div>
+<google-chart #chart
+   [title]="title"
+   [type]="type"
+   [data]="data"
+   [columnNames]="columnNames"
+   [options]="options"
+   [width]="width"
+   [height]="height">
+</google-chart>
+   </div>
+  </div>
+ </div>
+<ul>
+  <li><b>Số lượng thống kê được tính đến thời điểm hiện tại</b>
+    <ul>
+      <li>
+        <b>Hàng Công nghệ</b>
+        <ul>
+          <li>
+            Số lượng trong kho còn:{{amountHouseC}}
+          </li>
+          <li>
+            Số lượng đang cho đi mượn:{{amountBorrowC}}
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Hàng điện tử</b>
+        <ul>
+          <li>
+            Số lượng trong kho còn:{{amountHouseD}}
+          </li>
+          <li>
+            Số lượng đang cho đi mượn:{{amountBorrowD}}
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Hàng Gia dụng</b>
+        <ul>
+          <li>
+            Số lượng trong kho còn:{{amountHouseG}}
+          </li>
+          <li>
+            Số lượng đang cho đi mượn:{{amountBorrowG}}
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Mặt hàng còn lại</b>
+        <ul>
+          <li>
+            Số lượng trong kho còn:{{amountHouseK}}
+          </li>
+          <li>
+            Số lượng đang cho đi mượn:{{amountBorrowK}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>

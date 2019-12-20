@@ -1,0 +1,97 @@
+<!-- <div class="container">
+  <div class="row"> -->
+<!-- <div class="col-md-6 mt-5 mx-auto"> -->
+<div class="container">
+  <h1 class="h3 mb-3 font-weight-normal">Sửa thông tin tài khoản</h1>
+  <!-- <select class="form-control" name="employeeID" id="employee" ngModel>
+    <option *ngFor="let item of employeeList" [value]="item.id">{{item.fullName}}</option>
+  </select> -->
+  <div class="row">
+
+    <div class="form-group col-sm-4">
+      <label for="fullName">FullName <i>*</i></label>
+      <input type="text" name="fullName" class="form-control {{F}}" placeholder="Enter FullName" [(ngModel)]="data.fullName">
+      <i *ngIf="message.F">
+        {{message.F}}
+      </i>
+    </div>
+    <div class="form-group col-sm-4">
+      <label for="birthDate">Birth Date <i>*</i></label>
+      <input type="date" class="form-control {{B}}" name="birthDate" [(ngModel)]="data.birthDate">
+      <i *ngIf="message.B">
+        {{message.B}}
+      </i>
+    </div>
+    <div class="form-group col-sm-4">
+      <label for="status">Status</label>
+      <select class="form-control" name="status" id="status" [(ngModel)]="data.status">
+        <option *ngFor="let status of statuss" [value]="status.status">{{status.status}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <label for="name">Address</label>
+      <input type="text" class="form-control" name="address" placeholder="Enter Address" [(ngModel)]="data.address">
+    </div>
+    <div class="form-group col-sm-4">
+      <label for="name">Phone</label>
+      <input type="number" class="form-control {{P}}" name="phone" placeholder="Enter phone" [(ngModel)]="data.phone">
+      <i *ngIf="message.P">
+        {{message.P}}
+      </i>
+    </div>
+    <div class="form-group col-sm-4">
+      <label for="name">Gender</label>
+      <select class="form-control" name="gender" id="gender" [(ngModel)]="data.gender">
+        <option *ngFor="let gender of genders" [value]="gender.gender">{{gender.gender}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="data.email" />
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="code">Code</label>
+      <input type="text" class="form-control" name="code" placeholder="Enter Code" [(ngModel)]="data.code" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="jobTitle">Job Title</label>
+      <input type="text" class="form-control" name="jobTitle" placeholder="Enter Job Title" [(ngModel)]="data.jobTitle" />
+    </div>
+    <div class="form-group col-sm-6">
+      <form>
+        <div class="form-group col-sm-8">
+          <label for="file">Choose new image </label>
+          <input type="file" name="file" multiple (change)="select($event)" />
+        </div>
+      </form>
+    </div>
+    </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="jobStartDate">Job Start Date <i>*</i></label>
+          <input type="date" class="form-control {{JS}}" name="jobStartDate" [(ngModel)]="data.jobStartDate" />
+          <i *ngIf="message.JS">
+            {{message.JS}}
+          </i>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="jobEndDate">Job End Date <i>*</i></label>
+          <input type="date" class="form-control {{JE}}" name="jobEndDate" [(ngModel)]="data.jobEndDate" />
+          <i *ngIf="message.JE">
+            {{message.JE}}
+          </i>
+        </div>
+      </div>
+      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="registerEmployee()" style="margin-bottom:10px">Update!</button>
+
+    </div>
+    <!-- </div> -->
+    <!-- </div>
+  </div> -->

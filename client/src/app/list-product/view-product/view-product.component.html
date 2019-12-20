@@ -1,0 +1,41 @@
+<div class="container">
+  <span class="h3 mb-3 font-weight-normal">Thông tin chi tiết</span>
+  <button type="button" (click)="close()" class="closes"><i class="fas fa-times"></i></button>
+  <!--<div class"row">
+    <img src="'http://localhost:4000/'+{{productByID.image}}" alt={{productByID.name}} />
+  </div>-->
+  <div class="row">
+    <img src={{url}} alt={{productByID.name}} />
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <label for="name">Tên sản phẩm</label>
+      <input type="text" class="form-control " name="name" placeholder="enter name" value={{productByID.name}} [readonly]="true">
+    </div>
+    <div class="form-group col-sm-8">
+      <label for="name">Description</label>
+      <textarea cols="70" rows="5" type="text" class="form-control" name="description" placeholder="enter description" value={{productByID.description}} [readonly]="true"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Amount in warehouse</label>
+      <input type="number" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value={{productByID.amountInWarehouse}} [readonly]="true"/>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="name">Type</label>
+      <input class="form-control" name="type" id="type" value={{productByID.type}} [readonly]="true" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Job Start Date</label>
+      <input type="date" class="form-control" name="timeCreated" placeholder="Time Created" value={{productByID.dateCreated}} [readonly]="true" />
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="name">Last Update</label>
+      <input type="date" class="form-control" name="Last update" placeholder="Last Update Date" value={{productByID.lastUpdate}} [readonly]="true" />
+    </div>
+  </div>
+
+</div>

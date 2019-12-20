@@ -1,0 +1,11 @@
+<div class="form-group col-sm-4">
+  <label for="file">Choose File</label>
+  <input type="file" id="file" name="file" ng2FileSelect [uploader]="uploader" />
+  <button (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">upload</button>
+  <button type="button" (click)="updateEPL()">
+    update
+  </button>
+
+</div>
+
+<img src="http://localhost:4000/file-1576055942734" alt=""/> 

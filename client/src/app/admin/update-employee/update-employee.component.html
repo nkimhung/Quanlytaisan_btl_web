@@ -1,0 +1,78 @@
+<!-- <div class="container">
+  <div class="row"> -->
+<!-- <div class="col-md-6 mt-5 mx-auto"> -->
+  <div class="container">
+    <span class="h3 mb-3 font-weight-normal">Update-employee</span>
+    <button type="button" (click)="close()" class="closes"><i class="fas fa-times"></i></button>
+    <!-- <select class="form-control" name="employeeID" id="employee" ngModel>
+    <option *ngFor="let item of employeeList" [value]="item.id">{{item.fullName}}</option>
+  </select> -->
+    <div class="row">
+      <div class="form-group col-sm-4">
+        <label for="name">FullName</label>
+        <input type="text" class="form-control" name="fullName" placeholder="Enter FullName" value={{employeeById.fullName}} [readonly]="true" />
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="name">Birth Date</label>
+        <input type="date" class="form-control" name="birthDate" placeholder="Enter Address" value={{birthDate}} [readonly]="true">
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="name">Status</label>
+        <select class="form-control" name="status" id="status" [(ngModel)]="employeeById.status">
+          <option *ngFor="let status of statuss" [value]="status.status">{{status.status}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-4">
+        <label for="name">Address</label>
+        <input type="text" class="form-control" name="address" placeholder="Enter Address" value={{employeeById.address}} [readonly]="true">
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="name">Phone</label>
+        <input type="number" class="form-control" name="phone" placeholder="Enter phone" value={{employeeById.phone}} [readonly]="true">
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="name">Gender</label>
+        <input type="text" class="form-control" name="gender" placeholder="Enter gender" value={{employeeById.gender}} [readonly]="true">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="name">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter email" value={{employeeById.email}} [readonly]="true">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="name">Code</label>
+        <input type="text" class="form-control" name="code" placeholder="Enter Code" value={{employeeById.code}} [readonly]="true">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">Job Title</label>
+      <input type="text" class="form-control" name="jobTitle" placeholder="Enter Job Title" value={{employeeById.jobTitle}} [readonly]="true">
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="name">Job Start Date</label>
+        <input type="date" class="form-control {{JS}}" name="jobStartDate" placeholder="Enter Job Start Date"
+               [(ngModel)]="jobStartDate">
+        <i *ngIf="message.JS">
+          {{message.JS}}
+        </i>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="name">Job End Date</label>
+        <input type="date" class="form-control {{JE}}" name="jobEndDate" placeholder="Enter Job End Date"
+               [(ngModel)]="jobEndDate">
+        <i *ngIf="message.JE">
+          {{message.JE}}
+        </i>
+      </div>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="updateEmployee()" style="margin-bottom:5px">Update!</button>
+
+  </div>
+  <!-- </div> -->
+  <!-- </div>
+  </div> -->

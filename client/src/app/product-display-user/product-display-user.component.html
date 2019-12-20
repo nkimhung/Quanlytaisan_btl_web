@@ -1,0 +1,42 @@
+<!-- <div id="collapseExample" [ngbCollapse]="false"> -->
+  <div class="form-group col-sm-4 input-group">
+    <input class="form-control search" type="text" name="searchText" [(ngModel)]="searchText" placeholder="&#61442;  Tìm kiếm theo trường" />
+    <select class="form-control" name="type" id="type" [(ngModel)]="type">
+      <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
+    </select>
+  </div>
+<div class="row center" style="margin-bottom:10px;">
+  <div class="col-lg-2 col-md-4 col-sm-6 portfolio-item l" *ngFor="let product of products | filter :type : searchText : 'includes' | paginate: { itemsPerPage: 6, currentPage: p }">
+    <div class="card h-100 cen">
+      <div class="card-body">
+        <table class="table table-responsive h-100" style="display: inline;margin-left:auto;margin-right:auto;">
+          <tr>
+            <td style="border-top:none;">
+              <img src="http://localhost:4000/{{product.image}}" style="width:180px; height:300px;" />
+            </td>
+          </tr>
+          <tr>
+            <td>Name: {{product.name}}</td>
+          </tr>
+          <tr>
+            <td>Description: {{product.description}}</td>
+          </tr>
+          <tr>
+            <td>Type: {{product.type}}</td>
+          </tr>
+          <tr>
+            <td style="border-bottom:none;">Quanlity in Warehouse: {{product.amountInWarehouse}}</td>
+          </tr>
+        </table>
+      </div>
+      <button type="button" class="btn btn-outline-success" (click)="OnAddCart(product)">
+        <b>
+          Add to
+          cart
+        </b>
+      </button>
+    </div>
+    
+  </div>
+  </div>
+<pagination-controls (pageChange)="p = $event" ></pagination-controls>
