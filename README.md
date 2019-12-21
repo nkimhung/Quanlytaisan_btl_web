@@ -17,3 +17,4 @@ Phần mềm quản lý tài sản chung
   
 # Tên phần mềm: Quản lý tài sản
 # Mô tả tổng quan phần mềm:[LINK](https://drive.google.com/open?id=1Cy9ELlKxA3NZLgN54NKFk9BaA310vPn2)
+# Slide thuyết trình : [LINK](https://docs.google.com/presentation/d/1gSZJzXLRhjJJHdegaRLhwkq55_joYxcx-cTy9594nk0/edit?usp=sharing)
