@@ -1,42 +1,32 @@
 <!-- <div id="collapseExample" [ngbCollapse]="false"> -->
-  <div class="form-group col-sm-4 input-group">
-    <input class="form-control search" type="text" name="searchText" [(ngModel)]="searchText" placeholder="&#61442;  Tìm kiếm theo trường" />
-    <select class="form-control" name="type" id="type" [(ngModel)]="type">
-      <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
-    </select>
-  </div>
-<div class="row center" style="margin-bottom:10px;">
-  <div class="col-lg-2 col-md-4 col-sm-6 portfolio-item l" *ngFor="let product of products | filter :type : searchText : 'includes' | paginate: { itemsPerPage: 6, currentPage: p }">
-    <div class="card h-100 cen">
-      <div class="card-body">
-        <table class="table table-responsive h-100" style="display: inline;margin-left:auto;margin-right:auto;">
-          <tr>
-            <td style="border-top:none;">
-              <img src="http://localhost:4000/{{product.image}}" style="width:180px; height:300px;" />
-            </td>
-          </tr>
-          <tr>
-            <td>Name: {{product.name}}</td>
-          </tr>
-          <tr>
-            <td>Description: {{product.description}}</td>
-          </tr>
-          <tr>
-            <td>Type: {{product.type}}</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:none;">Quanlity in Warehouse: {{product.amountInWarehouse}}</td>
-          </tr>
-        </table>
-      </div>
-      <button type="button" class="btn btn-outline-success" (click)="OnAddCart(product)">
-        <b>
-          Add to
-          cart
-        </b>
-      </button>
+
+<div class="mb-3 bg-white p-0 mx-3" style="background-color:#e9ecef !important">
+  <div class="container col-8">
+    <div class="form-group row mb-4">
+      <input class="form-control col-4 search mr-2" type="text" name="searchText" [(ngModel)]="searchText" placeholder="&#61442;  Tìm kiếm theo trường" />
+      <select class="form-control col-4" name="type" id="type" [(ngModel)]="type">
+        <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
+      </select>
     </div>
-    
+    <div class="row mt-3 sizeFont2">
+      <div class="px-1 px-lg-3 col-md-3 col-sm-4 col-6 d-flex flex-column  py-1" *ngFor="let product of products | filter :type : searchText : 'includes' | paginate: { itemsPerPage: 8, currentPage: p }">
+        <div class="p-2 bg-gray rounded my-2">
+          <div class="spx-0">
+            <img src="http://localhost:4000/{{product.image}}" class="img-fluid rounded" style="height:220px !important;">
+          </div>
+          <span class="ml-2"><i class="fa fa-circle mr-1 text-dark py-2"></i>{{product.name}}</span>
+          <div class="mt-auto ml-2 d-flex">
+            <span class="mr-auto py-2">SL: {{product.amountInWarehouse}}</span>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-sm btn-info sizeFont2 py-0 ml-auto mr-2" (click)="openView(product)"><i class="fa fa-eye mr-1"></i>View</button>
+            <button type="button" class="btn btn-sm btn-info sizeFont2 py-0 ml-auto" (click)="OnAddCart(product)"><i class="fa fa-shopping-cart mr-1"></i> Borrow</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
-<pagination-controls (pageChange)="p = $event" ></pagination-controls>
+ </div>
+ <pagination-controls (pageChange)="p = $event" class="text-center mt-4"></pagination-controls>
+
+  

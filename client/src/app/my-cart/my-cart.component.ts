@@ -94,6 +94,7 @@ export class MyCartComponent implements OnInit {
     openPopup1(orderDetail) {
         const modalRef = this.modal.open(InfoNotificationComponent, { size: 'lg' })
         modalRef.componentInstance.id = orderDetail.id;
+        modalRef.componentInstance.ad = false;
         modalRef.result.then((result) => {
             console.log(result);
         }).catch((error) => {

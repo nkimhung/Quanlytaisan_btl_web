@@ -2,13 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UpdateInfoComponent } from './home/updateinfo/updateinfo.component';
 import { ChangePasswordComponent } from './home/change-password/change-password.component'
-
+import { InfoNotificationComponent } from './notification/info-notification/info-notification.component'
 import { AuthenticationService, SharedService, ProductService, EmployeeService } from './_services';
 import { User, Role } from './_models';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { debug } from 'util';
+
 @Component({ selector: 'app', templateUrl: 'app.component.html', styleUrls: ['./app.component.css'] })
 export class AppComponent {
     currentUser: User;
+
+    public orderDetails: any[];
+    public oDs: any[];
     public me = "";
     isShown: boolean = false;
     public c = 1;
@@ -37,8 +42,12 @@ export class AppComponent {
                     this.data = res.data;
                     if (res.data.avatar)
                         this.url = "http://localhost:4000/" + res.data.avatar;
-                    else
-                        this.url = "";
+                    else {
+                        this.url = "http://localhost:4000/file-1576927716752";
+                        this.data.avatar = "file-1576927716752";
+                    }
+                
+
                     this.getAllOrderEmployee();
                     this.getMesageEmployee();
                 });
@@ -66,6 +75,8 @@ export class AppComponent {
                 console.log(res.msg);
                 return;
             }
+            this.orderDetails = res.data;
+            this.orderDetails = this.format();
             this.me = res.data.length;
             debugger
             console.log(this.me);
@@ -97,6 +108,8 @@ export class AppComponent {
             debugger
             let d = res.data;
             this.msg = d.length;
+            this.oDs = res.data
+            this.oDs = this.format2();
             console.log(this.cart);
             debugger
         });
@@ -118,7 +131,6 @@ export class AppComponent {
     }
     open1() {
         const modalRef = this.modal.open(UpdateInfoComponent, { size: 'lg' })
-        debugger
         modalRef.componentInstance.data = this.data;
 
         modalRef.result.then((result) => {
@@ -142,7 +154,113 @@ export class AppComponent {
     }
 
     logout() {
+        this.getAllOrderDetail();
+        this.c = 1;
         this.authenticationService.logout();
         this.router.navigate(['/login']);
+    }
+    format() {
+        let productorders = this.orderDetails.map(productorder => {
+            productorder.dateCreated = this.formattedDate(new Date(productorder.timeCreated * 1));
+            productorder.timeBorrow = this.formattedDate(new Date(productorder.dateBorrow * 1));
+            productorder.timeReturn = this.formattedDate(new Date(productorder.dateReturn * 1));
+            return productorder;
+        })
+        return productorders;
+    }
+    format2() {
+        let productorders = this.oDs.map(productorder => {
+            productorder.dateCreated = this.formattedDate(new Date(productorder.timeCreated * 1));
+            productorder.timeBorrow = this.formattedDate(new Date(productorder.dateBorrow * 1));
+            productorder.timeReturn = this.formattedDate(new Date(productorder.dateReturn * 1));
+            productorder.modi = this.formattedDate(new Date(productorder.timeModified*1))
+            let date = new Date();
+            let day = date.getDate();
+            let month = date.getMonth();
+            let year = date.getFullYear();
+            day = day + 2;
+            let check = new Date(year, month, day).getTime();
+            productorder.msg="vừa được phê duyệt"
+            if (check > productorder.dateReturn) productorder.msg = "sắp đến hạn trả";
+            if (productorder.timeReturn > date.getTime()) productorder.msg = "quá hạn";
+            return productorder;
+        })
+        return productorders;
+    }
+    openPopup1(orderDetail) {
+        debugger
+        const modalRef = this.modal.open(InfoNotificationComponent, { size: 'lg' })
+        modalRef.componentInstance.id = orderDetail.id;
+        modalRef.componentInstance.ad = true;
+        modalRef.result.then((result) => {
+            if (result == "ACCEPT") {
+                let data = {
+                    id: orderDetail.id,
+                    employeeIDresponse: this.authenticationService.currentUserValue.employeeID,
+                    status: "ACCEPT"
+                };
+                console.log(data);
+                debugger
+                this.productService.updateStatus(data).subscribe((data) => {
+                    debugger
+                    if (data.status != 200) {
+
+                        alert("Loi server !");
+                        return;
+
+                    }
+                    alert("Cập nhập thành công !");
+                    this.getAllOrderDetail();
+                }
+                );
+
+            } else {
+                if (result == "DELETE") {
+                    let data = {
+                        id: orderDetail.id,
+                        employeeIDresponse: this.authenticationService.currentUserValue.employeeID,
+                        status: "DELETE"
+                    };
+                    debugger
+                this.productService.updateStatus(data).subscribe((data) => {
+                    debugger
+                    if (data.status != 200) {
+
+                        alert("Loi server !");
+                        return;
+
+                    }
+                    alert("Cập nhập thành công !");
+                    this.getAllOrderDetail();
+                }
+                );
+            }
+        }
+        }).catch((error) => {
+            console.log(error);
+        });
+        console.log(modalRef.componentInstance.id)
+        console.log(orderDetail.id);
+    }
+    openPopup2(orderDetail) {
+        debugger
+        const modalRef = this.modal.open(InfoNotificationComponent, { size: 'lg' })
+        modalRef.componentInstance.id = orderDetail.id;
+        modalRef.componentInstance.ad = false;
+        modalRef.result.then((result) => {
+            
+        }).catch((error) => {
+            console.log(error);
+        });
+        console.log(modalRef.componentInstance.id)
+        console.log(orderDetail.id);
+    }
+    formattedDate(d) {
+        let month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+        return [day, month, year].join('/');
     }
 }

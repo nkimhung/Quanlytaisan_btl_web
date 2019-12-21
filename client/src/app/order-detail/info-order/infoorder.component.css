@@ -1,0 +1,21 @@
+.bg-blue2 {
+  background-image: linear-gradient(to right bottom, rgb(0, 83, 139),#009ACD);
+}
+
+img {
+  height: 19em;
+  width: 19em;
+}
+
+.cl2 {
+  background-color: #2732f7;
+  margin-right: 5em;
+}
+
+.close {
+  color: red;
+}
+
+i {
+  color: red;
+}

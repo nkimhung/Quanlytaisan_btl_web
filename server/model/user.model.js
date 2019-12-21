@@ -18,18 +18,42 @@ class UserModel extends Model {
                 type: this.sequelize.QueryTypes.SELECT
             }).then(result => {
                 if (!result[0]) {
-                    UserModel.create(data).then(result => {
+                    sql = ` insert into employee(timeCreated,status,createdBy) value( ${data.timeCreated},"Active",${data.createdBy})`;
+                    this.sequelize.query(sql, {
+                        type: this.sequelize.QueryTypes.SELECT
+                    }).then(result => {
+
+
                     }).catch(err => {
-                        reject(err);
+                        console.log("ok");
+                        sql = `select max(id)as id from employee`;
+                        this.sequelize.query(sql, {
+                            type: this.sequelize.QueryTypes.SELECT
+                        }).then(result => {
+                            data.employeeID = result[0].id;
+                            UserModel.create(data).then(result => {
+                                resolve({
+                                    status: 200,
+                                    msg: "okkkk"
+                                });
+                            }).catch(err => {
+                                reject(err);
+                            })
+                            resolve({
+                                status: 200,
+                                msg: "okkkk"
+                            });
+                        }).catch(err => {
+                            reject(err)
                         })
+                    })
+
+                } else {
                     resolve({
-                        status: 200,
-                        msg: "okkkk"
+                        status: 401,
+                        err: "Tên tài khoản đã tồn tại !"
                     });
                 }
-                resolve( {
-                    status: 401,
-                    err: "Tên tài khoản đã tồn tại !"});
 
             }).catch(err => {
                 reject(err)

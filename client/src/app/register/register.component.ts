@@ -48,14 +48,7 @@ export class RegisterComponent implements OnInit {
         var user = form.value;
         user.timeCreate = "125365";
         debugger
-        if (!user.employeeID) {
-            this.errorEmployee = "error";
-            this.messageErrorE = "show";
-        }
-        else {
-            this.errorEmployee = "";
-            this.messageErrorE = "";
-        }
+   
         if (!user.username) {
             this.errorUsername = "error";
             this.messageErrorU = "show";
@@ -82,13 +75,14 @@ export class RegisterComponent implements OnInit {
             this.messageErrorR = "";
         }
       debugger
-        if (user.employeeID && user.username && user.password && user.role) {
+        if (user.username && user.password && user.role) {
             user.createdBy = this.auth.currentUserValue.employeeID;
             user.modifiedBy = this.auth.currentUserValue.employeeID;
             debugger
             this.auth.register(user).subscribe(
                 (data) => {
                     if (data.status != 200) {
+                        debugger
                         this.errorUsername = "error";
                         this.messageErrorU = "show";
                         this.errorPassword = "error";

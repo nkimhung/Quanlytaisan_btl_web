@@ -3,11 +3,6 @@
     <div class="col-md-12 mt-5 mx-auto">
       <form #form="ngForm" (submit)="register(form)">
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-        <label for="name">FullName</label>
-        <select class="form-control {{errorEmployee}}" name="employeeID" id="employee" ngModel>
-          <option *ngFor="let item of employees" [value]="item.id">{{item.fullName}}</option>
-        </select>
-        <i *ngIf="messageErrorE">Trường này không được bỏ trống!</i>
         <div class="form-group">
           <label for="name">Username</label>
           <input type="text" class="form-control {{errorUsername}}" name="username" placeholder="Enter Username" ngModel>

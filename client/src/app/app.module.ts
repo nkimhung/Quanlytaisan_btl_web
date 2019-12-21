@@ -30,6 +30,7 @@ import { InfoNotificationComponent } from './notification/info-notification/info
 import { ProductDisplayUserComponent } from './product-display-user/product-display-user.component';
 import { MyCartComponent } from './my-cart/my-cart.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { InfoOrderComponent } from './order-detail/info-order/infoorder.component'
 import { NotificationComponent } from './notification/notification.component';
 import { WarningComponent } from './list-product/warning/warning.component';
 import { WarningNotiComponent } from './notification/warningnoti/warningnoti.component';
@@ -73,29 +74,31 @@ import { GoogleChartsModule } from 'angular-google-charts';
       MyCartComponent,
       OrderDetailComponent,
       NotificationComponent,
-       WarningComponent,
-       WarningNotiComponent,
-       ChangePasswordComponent,
-       WarningDeleteComponent,
-       MessageBorrowComponent,
-       RevokeProductOrder,
-       StatisticComponent
+      InfoOrderComponent ,
+      WarningComponent,
+      WarningNotiComponent,
+      ChangePasswordComponent,
+      WarningDeleteComponent,
+      MessageBorrowComponent,
+      RevokeProductOrder,
+      StatisticComponent
    ],
    providers: [],
    entryComponents: [
-       UpdateInfoComponent,
+      UpdateInfoComponent,
       InfoEmployeeComponent,
       UpdateEmployeeComponent,
       UpdateProductComponent,
       ChangeAvatarComponent,
-       CreateProductComponent,
-       ViewProductComponent,
-       InfoNotificationComponent,
-       WarningComponent,
-       WarningNotiComponent,
-       ChangePasswordComponent,
-       MessageBorrowComponent,
-       WarningDeleteComponent
+      CreateProductComponent,
+      ViewProductComponent,
+      InfoNotificationComponent,
+      WarningComponent,
+      WarningNotiComponent,
+      ChangePasswordComponent,
+      MessageBorrowComponent,
+      WarningDeleteComponent,
+      InfoOrderComponent 
    ],
    bootstrap: [
       AppComponent

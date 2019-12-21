@@ -1,41 +1,87 @@
-<div class="container">
-  <span class="h3 mb-3 font-weight-normal">Thông tin chi tiết</span>
-  <button type="button" (click)="close()" class="closes"><i class="fas fa-times"></i></button>
-  <!--<div class"row">
-    <img src="'http://localhost:4000/'+{{productByID.image}}" alt={{productByID.name}} />
-  </div>-->
-  <div class="row">
-    <img src={{url}} alt={{productByID.name}} />
-  </div>
-  <div class="row">
-    <div class="form-group col-sm-4">
-      <label for="name">Tên sản phẩm</label>
-      <input type="text" class="form-control " name="name" placeholder="enter name" value={{productByID.name}} [readonly]="true">
-    </div>
-    <div class="form-group col-sm-8">
-      <label for="name">Description</label>
-      <textarea cols="70" rows="5" type="text" class="form-control" name="description" placeholder="enter description" value={{productByID.description}} [readonly]="true"></textarea>
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-sm-6">
-      <label for="name">Amount in warehouse</label>
-      <input type="number" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value={{productByID.amountInWarehouse}} [readonly]="true"/>
-    </div>
-    <div class="form-group col-sm-6">
-      <label for="name">Type</label>
-      <input class="form-control" name="type" id="type" value={{productByID.type}} [readonly]="true" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-sm-6">
-      <label for="name">Job Start Date</label>
-      <input type="date" class="form-control" name="timeCreated" placeholder="Time Created" value={{productByID.dateCreated}} [readonly]="true" />
-    </div>
-    <div class="form-group col-sm-6">
-      <label for="name">Last Update</label>
-      <input type="date" class="form-control" name="Last update" placeholder="Last Update Date" value={{productByID.lastUpdate}} [readonly]="true" />
-    </div>
-  </div>
-
+<!-- Modal Header -->
+<div class="modal-header bg-blue2 py-1">
+  <h4 class="modal-title text-white">Thông tin chi tiết</h4>
+  <button type="button" class="close" (click)="close()">&times;</button>
 </div>
+<!-- Modal body -->
+<div class="modal-body">
+  <div class="row">
+    <div class="form-group col-sm-7">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Tên sản phẩm:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control " name="name" placeholder="enter name" value={{productByID.name}} [readonly]="true">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Mã sản phẩm:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control " name="name" placeholder="enter name" value={{productByID.id}} [readonly]="true">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Ngày nhập:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="date" class="form-control" name="timeCreated" placeholder="Time Created" value={{productByID.dateCreated}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Loại sản phẩm:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input class="form-control" name="type" id="type" value={{productByID.type}} [readonly]="true" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Số lượng trong kho:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="number" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value={{productByID.amountInWarehouse}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Trạng thái:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input style="color:red;" *ngIf="productByID.amountInWarehouse" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value="Còn hàng" [readonly]="true" />
+          <input style="color:red;" *ngIf="! productByID.amountInWarehouse" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value="Hết hàng" [readonly]="true" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Cập nhập lần cuối</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="date" class="form-control" name="Last update" placeholder="Last Update Date" value={{productByID.lastUpdate}} [readonly]="true" />
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-sm-5">
+      <img src={{url}} alt={{productByID.name}} />
+    </div>
+    <div class="row mx-2">
+      <div class="form-group col-sm-8">
+        <label for="name">Mô tả sản phẩm</label>
+      </div>
+      <div class="form-group col-sm-12">
+        <textarea cols="120" rows="5" type="text" class="form-control" name="description" placeholder="enter description" value={{productByID.description}} [readonly]="true"></textarea>
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- Modal footer -->
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="close()">Close</button>
+</div>
+

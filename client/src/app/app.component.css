@@ -6,3 +6,9 @@
 .border-left {
   border-left:none!important;
 }
+.admin .dropdown-toggle::after{
+  display:none !important;
+}
+.bg-blue2 {
+  background-image: linear-gradient(to right bottom, rgb(0, 83, 139),#009ACD) !important;
+}

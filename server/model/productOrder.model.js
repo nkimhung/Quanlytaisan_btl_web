@@ -69,7 +69,8 @@ class ProductOrderModel extends Model {
 
   updateStatus(data) {
         let id = data.id;
-        let date = new Date().getTime();
+      let date = new Date().getTime();
+      console.log(data);
     return new Promise((resolve, reject) => {
       //let sql = `UPDATE productOrder
       //            SET status = 'ACCEPT'
@@ -87,36 +88,51 @@ class ProductOrderModel extends Model {
               });
           } else {
               var data1 = result[0];
+              console.log(data1);
               if (data.status == "ACCEPT") {
-                  
-                  let sql = `update productInfo set amountInWarehouse = amountInWarehouse -'${data1.amount}',
-                        timeModified='${date}',modifiedBy='${data.employeeIDresponse}'
-                        where amountInWarehouse >= '${data1.amount}' and id= '${data1.productInfoID}'`;
-                  this.sequelize.query(sql, {
+                  let sqll = `select amountInWarehouse from productInfo  where amountInWarehouse >= '${data1.amount}' and id= '${data1.productInfoID}'`;
+                  this.sequelize.query(sqll, {
                       type: this.sequelize.QueryTypes.SELECT
                   }).then(result => {
-                      resolve(result);
-                  }).catch(err => {
-                      let sql = `update productorder set status='ACCEPT',timeModified='${date}',modifiedBy='${data.employeeIDresponse}',
-                           employeeIDresponse = '${data.employeeIDresponse}' where id= '${data1.productorderID}'`;
-                      this.sequelize.query(sql, {
-                          type: this.sequelize.QueryTypes.SELECT
-                      }).then(result => {
-                          resolve(result);
-                      }).catch(err => {
-                          let sql = `update productincart set status='ACCEPT',
-                                timeModified ='${date}',
-                                modifiedBy = '${data.employeeIDresponse}'
-                                where productOrderID= '${data1.productorderID}'`;
+                      console.log(result);
+                      if (!result[0]) {
+                          resolve({
+                              status: 500,
+                              err: "Het hang"
+                          });
+                      } else {
+                          let sql = `update productInfo set amountInWarehouse = amountInWarehouse -'${data1.amount}',
+                        timeModified='${date}',modifiedBy='${data.employeeIDresponse}'
+                        where amountInWarehouse >= '${data1.amount}' and id= '${data1.productInfoID}'`;
                           this.sequelize.query(sql, {
                               type: this.sequelize.QueryTypes.SELECT
                           }).then(result => {
                               resolve(result);
                           }).catch(err => {
-                              resolve({ status: 200 });
-                              reject(err)
+                              let sql = `update productorder set status='ACCEPT',timeModified='${date}',modifiedBy='${data.employeeIDresponse}',
+                           employeeIDresponse = '${data.employeeIDresponse}' where id= '${data1.productorderID}'`;
+                              this.sequelize.query(sql, {
+                                  type: this.sequelize.QueryTypes.SELECT
+                              }).then(result => {
+                                  resolve(result);
+                              }).catch(err => {
+                                  let sql = `update productincart set status='ACCEPT',
+                                timeModified ='${date}',
+                                modifiedBy = '${data.employeeIDresponse}'
+                                where productOrderID= '${data1.productorderID}'`;
+                                  this.sequelize.query(sql, {
+                                      type: this.sequelize.QueryTypes.SELECT
+                                  }).then(result => {
+                                      resolve(result);
+                                  }).catch(err => {
+                                      resolve({ status: 200 });
+                                      reject(err)
+                                  })
+                              })
                           })
-                      })
+                      }
+                  }).catch(err => {
+                      reject(err)
                   })
               } else {
                   let sql = `update productorder set status='DELETE',timeModified='${date}',modifiedBy='${data.employeeIDresponse}',
@@ -149,8 +165,9 @@ class ProductOrderModel extends Model {
 
   getAllOrderOfWait() {
     return new Promise((resolve, reject) => {
-        let sql = `SELECT productOrder.*,productincart.amount FROM productOrder
+        let sql = `SELECT productOrder.*,productincart.amount,employee.fullname FROM productOrder
                    inner join productincart on productincart.productOrderID=productorder.id
+                   inner join employee on productOrder.createdBy=employee.id
                    WHERE productOrder.status = 'WAIT'`;
       this.sequelize.query(sql, {
         type: this.sequelize.QueryTypes.SELECT
@@ -192,15 +209,9 @@ class ProductOrderModel extends Model {
     
     getmessageByEmployee(id) {
         return new Promise((resolve, reject) => {
-            let date = new Date();
-            let day = date.getDate();
-            let month = date.getMonth();
-            let year = date.getFullYear();
-            day = day + 5;
-            let check = new Date(year, month, day).getTime();
             let sql = `SELECT productOrder.*,productincart.amount FROM productOrder
                    inner join productincart on productincart.productOrderID=productorder.id
-                   WHERE productOrder.employeeIDrequest = '${id}' and productOrder.status = 'ACCEPT' and dateReturn < '${check}'`;
+                   WHERE productOrder.employeeIDrequest = '${id}' and productOrder.status = 'ACCEPT'`;
             this.sequelize.query(sql, {
                 type: this.sequelize.QueryTypes.SELECT
             }).then(result => {

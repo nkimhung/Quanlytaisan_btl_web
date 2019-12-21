@@ -1,20 +1,11 @@
-.closes {
-  float: right;
-  height: 30px !important;
-  margin-top: 1px;
-  color: white;
-  height: 30px;
-  margin-right: -13px;
-}
-
-  .closes:hover {
-    border: solid 1px blue;
-  }
-
-error {
-  border: solid 1px red;
-}
 
 i {
   color: red;
+}
+.bg-blue2 {
+  background-image: linear-gradient(to right bottom, rgb(0, 83, 139),#009ACD);
+}
+.cl2 {
+  background-color: #2732f7;
+  margin-right: 1em;
 }

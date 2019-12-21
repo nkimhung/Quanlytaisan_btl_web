@@ -57,3 +57,17 @@
   <br />
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+<div ng ngbDropdown>
+  <div style="min-width: 180px;text-align: right;" class="text-white dropdown-toggle  p-0 mr-sm-2" data-toggle="dropdown" id="dropdownBasic2" ngbDropdownToggle>
+    Thông báo
+
+  </div>
+  <div class="dropdown-menu dropdown-menu-right shadow position-absolute" ngbDropdownMenu aria-labelledby="dropdownBasic2">
+    <div *ngFor="let orderDetail of orderDetails" class="dropdown-item" data-toggle="modal" data-target="#updatein" (click)="openPopup1(orderDetail)">
+      <i class="fas fa-user-edit pr-2" aria-hidden="true" style="color:black"></i> Ngày tạo: {{orderDetail.dateCreated}}
+    <div>
+      Người dùng {{orderDetail.fullname}} muốn mượn {{orderDetail.name}}
+    </div>
+    </div>
+  </div>
+</div>

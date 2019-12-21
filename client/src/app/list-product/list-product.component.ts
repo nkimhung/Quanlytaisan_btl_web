@@ -29,10 +29,6 @@ export class ListProductComponent implements OnInit {
             value: 'name'
         },
         {
-            type: 'Description',
-            value: 'description'
-        },
-        {
             type: 'Date Created',
             value: 'dateCreated'
         },
@@ -71,7 +67,7 @@ export class ListProductComponent implements OnInit {
     this.modal.open(CreateProductComponent, {
       size: 'lg',
     }).result.then(res => {
-      console.log("dasdasd")
+        this.getAllProduct();
     })
   }
   openPopup2(product) {
@@ -110,6 +106,7 @@ export class ListProductComponent implements OnInit {
                             alert(res.err)
                         } else {
                             alert('Xóa thành công')
+                            this.getAllProduct();
                         }
                     },
                     err => {

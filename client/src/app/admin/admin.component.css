@@ -1,11 +1,11 @@
-table {
-  background-color: #00a1ff;
+/*table {
+ 
   height:200px !important;
 }
 button{
   margin:5px;
 }
-td,th{
+td{
   border: 1px solid #d0cbcb;
   padding: 0px;
   text-align: center;
@@ -24,4 +24,13 @@ th {
   padding: 0;
   text-align: center;
   vertical-align: middle;
+}*/
+td {
+  border: 1px solid #d0cbcb;
+  padding: 0.5em;
+  text-align: center;
+  vertical-align: middle;
+}
+.bg-blue2 {
+  background-image: linear-gradient(to right bottom, rgb(0, 83, 139),#009ACD);
 }

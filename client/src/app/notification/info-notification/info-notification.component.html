@@ -1,39 +1,70 @@
-<div class="container">
-  <span class="h3 mb-3 font-weight-normal">Thông tin đơn hàng</span>
-  <button type="button" (click)="close()" class="closes"><i class="fas fa-times"></i></button>
-  <!--<div class"row">
-    <img src="'http://localhost:4000/'+{{productByID.image}}" alt={{productByID.name}} />
-  </div>-->
-  <div class="row">
-    <div class="form-group col-sm-6">
-      <label for="name">Người tạo</label>
-      <input type="text" class="form-control" name="fullName" placeholder="fullName" value={{info.fullName}} [readonly]="true" />
-    </div>
-    <div class="form-group col-sm-6">
-      <label for="name">Ngày tạo</label>
-      <input type="date" class="form-control" name="dateCreated" placeholder="Date Created" value={{info.dateCreated}} [readonly]="true" />
-    </div>
-  </div>
-  <div class="row">
+<div class="modal-header bg-blue2 py-1">
+  <h4 class="modal-title text-white">Infomation</h4>
+  <button type="button" class="close" (click)="close()">&times;</button>
+</div>
 
-    <div class="form-group col-sm-4">
-      <label for="name">Tên sản phẩm</label>
-      <input type="text" class="form-control " name="name" placeholder="enter name" value={{info.name}} [readonly]="true">
-    </div>
-  </div>
+<!-- Modal body -->
+<div class="modal-body">
   <div class="row">
-    <img src={{url}} alt={{info.name}} />
-  </div>
-  <div class="row">
-    <div class="form-group col-sm-6">
-      <label for="name">Amount in Warehouse</label>
-      <input type="number" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value={{info.amountInWarehouse}} [readonly]="true" />
+    <div class="form-group col-sm-7">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Mã đơn hàng</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control" name="fullName" placeholder="fullName" value={{id}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Người tạo</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control" name="fullName" placeholder="fullName" value={{info.fullName}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="form-group col-sm-4">
+          <label for="name">Tên sản phẩm mượn</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control " name="name" placeholder="enter name" value={{info.name}} [readonly]="true">
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="form-group col-sm-4">
+          <label for="name">Số lượng muốn mượn</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input class="form-control" name="type" id="type" value={{info.amount}} [readonly]="true" />
+        </div>
+      </div>
+      <div *ngIf="ad" class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Số lượng trong kho</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="number" class="form-control" name="amountinwarehouse" placeholder="enter amountinwarehouse" value={{info.amountInWarehouse}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Ngày tạo</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="date" class="form-control" name="dateCreated" placeholder="Date Created" value={{info.dateCreated}} [readonly]="true" />
+        </div>
+      </div>
+
     </div>
-    <div class="form-group col-sm-6">
-      <label for="name">Amount Borrowed</label>
-      <input class="form-control" name="type" id="type" value={{info.amount}} [readonly]="true" />
+    <div class="form-group col-sm-5">
+      <img src={{url}} alt={{info.name}} />
     </div>
   </div>
+
+
   <div class="row">
     <div class="form-group col-sm-6">
       <label for="name">Date Borrow</label>
@@ -45,4 +76,8 @@
     </div>
   </div>
 
+</div>
+<div class="modal-footer">
+  <button *ngIf="ad" class="btn btn-info text-white {{no}}" (click)="close1()">ACCEPT</button>
+  <button *ngIf="ad" type="submit" class="btn btn-info text-white" (click)="close2()">Refuse!</button>
 </div>

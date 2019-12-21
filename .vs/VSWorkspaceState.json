@@ -4,13 +4,13 @@
     "\\client",
     "\\client\\src",
     "\\client\\src\\app",
-    "\\client\\src\\app\\home\\change-avatar",
-    "\\client\\src\\app\\notification",
+    "\\client\\src\\app\\admin",
+    "\\client\\src\\app\\home",
+    "\\client\\src\\app\\list-product",
+    "\\client\\src\\app\\login",
     "\\client\\src\\app\\order-detail",
-    "\\client\\src\\app\\register-employee",
-    "\\client\\src\\app\\_services",
-    "\\test"
+    "\\client\\src\\app\\product-display-user"
   ],
-  "SelectedNode": "\\client\\src\\app\\register-employee\\register-employee.component.html",
+  "SelectedNode": "\\client\\src\\app\\admin\\filter.pipe.ts",
   "PreviewInSolutionExplorer": false
 }

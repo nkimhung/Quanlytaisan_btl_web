@@ -15,7 +15,11 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UpdateInfoComponent implements OnInit {
     @Input() data: any;
+    public jobStartDate = "";
+    public jobEndDate = "";
+    public birth = "";
     public error = "";
+    public full = "";
     public message: any = {};
     public F = "";
     public B = "";
@@ -23,6 +27,7 @@ export class UpdateInfoComponent implements OnInit {
     public JS = "";
     public JE = "";
     public image;
+    public url = "http://localhost:4000/";
 
     public genders: any = [
         { gender: 'Nam' },
@@ -50,7 +55,7 @@ export class UpdateInfoComponent implements OnInit {
     }
     registerEmployee() {
         //check fullName
-        if (!this.data.fullName) {
+        if (!this.full) {
             this.F = "err";
             this.message.F = "FullName không thể trống !";
             debugger
@@ -92,7 +97,7 @@ export class UpdateInfoComponent implements OnInit {
             this.message.JE = "";
         }
         // stop here if form is invalid
-        if (!this.data.phone || !this.data.birthDate || !this.data.fullName || !this.data.jobStartDate || !this.data.jobEndDate) {
+        if (!this.data.phone || !this.data.birthDate || !this.full || !this.data.jobStartDate || !this.data.jobEndDate) {
             debugger
             this.error = "Không được bỏ trống các trường bôi đỏ !"
         } else {
@@ -113,6 +118,7 @@ export class UpdateInfoComponent implements OnInit {
                 const formData = new FormData();
                 formData.append('file', this.image);
                 if (this.image) {
+                    this.data.fullName = this.full;
                     this.productService.update(formData).subscribe((data) => {
                         if (data.status != 200) {
                             this.error = "Lỗi server khi tải ảnh lên. Xin vui lòng thử lại!";
@@ -131,6 +137,7 @@ export class UpdateInfoComponent implements OnInit {
                         }
                     })}
                 else {
+                    this.data.fullName = this.full;
                     this.auth.updateEmployee(this.data).subscribe((data) => {
                         if (data.status != 200) {
                             alert("Lỗi server vui lòng thử lại");
@@ -158,8 +165,11 @@ export class UpdateInfoComponent implements OnInit {
         }
             this.data.birthDate = this.formattedDate(new Date(this.data.birthDate * 1));
             this.data.jobStartDate = this.formattedDate(new Date(this.data.jobStartDate * 1));
-            this.data.jobEndDate = this.formattedDate(new Date(this.data.jobEndDate * 1));
-            var a = this.data;
+        this.data.jobEndDate = this.formattedDate(new Date(this.data.jobEndDate * 1));
+        debugger
+        var a = this.data;
+        this.url = this.url + this.data.avatar;
+        this.full = this.data.fullName;
 
     }
     formattedDate(d) {

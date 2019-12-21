@@ -5,7 +5,7 @@ import { ProductOrder } from '@/_models';
 import { ProductService, SharedService, AuthenticationService } from '@/_services';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WarningDeleteComponent } from '../../my-cart/warning-delete/warning-delete.component';
-import { InfoNotificationComponent } from '../../notification/info-notification/info-notification.component';
+import { InfoOrderComponent } from '../info-order/infoorder.component';
 @Component({
     selector: 'revoke-product-order',
     templateUrl: './revoke-product-order.component.html',
@@ -19,8 +19,35 @@ export class RevokeProductOrder implements OnInit {
     orderDetail: any = [];  // productOrder
     quantity: number;
     public orderDetails: any = [];
-    sortType = 'timeReturn';
+    sortType = 'dateReturn';
     sortReverse = false;
+    public type = 'id';
+    public types: any = [
+        {
+            type: 'Code',
+            value:'id'
+        },
+        {
+            type: 'Name',
+            value: 'name'
+        },
+        {
+            type: 'Amount',
+            value: 'amount'
+        },
+        {
+            type: 'Time Created',
+            value: 'timeCreated'
+        },
+        {
+            type: 'Date Borrow',
+            value: 'dateBorrow'
+        },
+        {
+            type: 'Date Return',
+            value: 'dateReturn'
+        }
+    ]
     constructor(private productService: ProductService, private authenticationService: AuthenticationService, private modal: NgbModal) { }
 
     ngOnInit() {
@@ -92,7 +119,7 @@ export class RevokeProductOrder implements OnInit {
         );
     }
     openPopup1(orderDetail) {
-        const modalRef = this.modal.open(InfoNotificationComponent, { size: 'lg' })
+        const modalRef = this.modal.open(InfoOrderComponent, { size: 'lg' })
         modalRef.componentInstance.id = orderDetail.id;
         modalRef.result.then((result) => {
             console.log(result);
@@ -116,7 +143,8 @@ export class RevokeProductOrder implements OnInit {
 
                     } else {
                   
-                                alert("Cập nhập thành công");
+                        alert("Cập nhập thành công");
+                        this.getAllProductOrder();
                             }
                        });
             }

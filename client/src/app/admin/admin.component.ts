@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
     public types: any = [
         {
             type: 'Full Name',
-            value:'fullName'
+            value: 'fullName'
         },
         {
             type: 'Status',
@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit {
         },
         {
             type: 'Phone',
-            value:'phone'
+            value: 'phone'
         },
         {
             type: 'Gender',
@@ -50,7 +50,7 @@ export class AdminComponent implements OnInit {
             type: 'Job Title',
             value: 'status'
         },
-    ]
+    ];
 
     constructor(private userService: UserService, private employeeService: EmployeeService, private modal: NgbModal) { }
 

@@ -1,8 +1,8 @@
-<h1>Admin</h1>
-<p>This page can only be accessed by administrators.</p>
+<h1>List User</h1>
+
 <div class="form-group col-sm-4 input-group">
-  <input type="text" placeholder="search..." class="search" [(ngModel)]="searchValue" />
-  <select class="form-control" name="type" id="type" [(ngModel)]="type">
+  <input type="text" placeholder="search..." class="form-control mr-2" [(ngModel)]="searchValue" />
+  <select class="form-control" name="type" [(ngModel)]="type">
   <option *ngFor="let typec of types" [value]="typec.value">{{typec.type}}</option>
   </select>
 </div>
@@ -13,8 +13,8 @@
     </button>
 </div> -->
 <div class="table-responsive table-container">
-  <table class="table table-bordered table-striped table-hover " >
-    <thead class="thead-light">
+  <table class="table table-bordered table-striped table-hover text-center">
+    <thead class="bg-blue2 text-white">
       <tr>
         <th class="th-sm">Full Name</th>
         <th class="th-sm"> Code</th>
@@ -29,27 +29,28 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees | filter :type : searchValue : 'includes'| paginate: { itemsPerPage: 10, currentPage: p }">
-          <td>{{employee.fullName}}</td>
-          <td>{{employee.code}}</td>
-          <td>{{employee.gender}}</td>
-          <td>{{employee.email}}</td>
-          <td>{{employee.phone}}</td>
-          <td>{{employee.address}}</td>
-          <td>{{employee.birth}}</td>
-          <td>{{employee.jobTitle}}</td>
-          <td>{{employee.status}}</td>
+      <tr *ngFor="let employee of employees | filter : type : searchValue : 'includes'| paginate: { itemsPerPage: 15, currentPage: p }">
+        <td>{{employee.fullName}}</td>
+        <td>{{employee.code}}</td>
+        <td>{{employee.gender}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.birth}}</td>
+        <td>{{employee.jobTitle}}</td>
+        <td>{{employee.status}}</td>
 
-          <td>
-            <button (click)="openPopup1(employee)" class="btn btn-info">View</button>
-            <button (click)="openPopup2(employee)" class="btn btn-info">Update</button>
-            <!-- <button (click)="updateProduct(product)" style="margin-left: 20px;" class="btn btn-info">
-                Edit</button>
-            <button (click)="getProductById(product)" style="margin-left: 20px;"
-                class="btn btn-info">Info</button> -->
-          </td>
-        </tr>
+        <td>
+          <button (click)="openPopup2(employee)" class="btn bg-blue2 btn-sm text-white">Update</button>
+          <!-- <button (click)="updateProduct(product)" style="margin-left: 20px;" class="btn btn-info">
+              Edit</button> (click)="openPopup2(employee)"
+          <button (click)="getProductById(product)" style="margin-left: 20px;"
+              class="btn btn-info">Info</button> -->
+        </td>
+      </tr>
     </tbody>
   </table>
+  
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+

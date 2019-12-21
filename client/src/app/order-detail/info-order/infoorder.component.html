@@ -1,0 +1,68 @@
+<!-- Modal Header -->
+<div class="modal-header bg-blue2 py-1">
+  <h4 class="modal-title text-white">Thông tin đơn hàng</h4>
+  <button type="button" class="close" (click)="close()">&times;</button>
+</div>
+<!-- Modal body -->
+<div class="modal-body">
+  <div class="row">
+    <div class="form-group col-sm-7">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Mã đơn hàng:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control" name="fullName" placeholder="fullName" value={{id}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Người tạo:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control" name="fullName" placeholder="fullName" value={{info.fullName}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Ngày tạo:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="date" class="form-control" name="dateCreated" placeholder="Date Created" value={{info.dateCreated}} [readonly]="true" />
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="form-group col-sm-4">
+          <label for="name">Sản phẩm mượn:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input type="text" class="form-control " name="name" placeholder="enter name" value={{info.name}} [readonly]="true">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Số lượng mượn:</label>
+        </div>
+        <div class="form-group col-sm-8">
+          <input class="form-control" name="type" id="type" value={{info.amount}} [readonly]="true" />
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-sm-4">
+      <img src={{url}} alt={{info.name}} />
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="name">Ngày mượn đăng ký:</label>
+      <input type="date" class="form-control" name="timeCreated" placeholder="Time Created" value={{info.timeBorrow}} [readonly]="true" />
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="name">Ngày trả đăng ký:</label>
+      <input type="date" class="form-control" name="Last update" placeholder="Last Update Date" value={{info.timeReturn}} [readonly]="true" />
+    </div>
+  </div>
+
+</div>

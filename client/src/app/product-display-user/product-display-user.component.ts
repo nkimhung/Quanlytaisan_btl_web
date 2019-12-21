@@ -7,7 +7,8 @@ import { ProductInCart } from '@/_models';
 import { ProductOrder } from '@/_models'
 import { User, Role } from '../_models';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { MessageBorrowComponent } from './message-borrow/message-borrow.component'
+import { MessageBorrowComponent } from './message-borrow/message-borrow.component';
+import { ViewProductComponent } from '../list-product/view-product/view-product.component'
 @Component({
   selector: 'app-product-display-user',
     templateUrl: './product-display-user.component.html',
@@ -69,26 +70,17 @@ export class ProductDisplayUserComponent implements OnInit {
         modalRef.result.then((result) => {
         }).catch((error) => {
         });
-    //{
-    //  var productAddToCart = [];
-    //  productAddToCart = JSON.parse(localStorage.getItem('product'));
+    }
+    openView(product) {
+        const modalRef = this.modal.open(ViewProductComponent, { size: 'lg' })
+        modalRef.componentInstance.id = product.id;
 
-    //  if (productAddToCart == null) {
-    //    productAddToCart.push(product);
-    //    this.productService.addProductToCart(productAddToCart);
-    //  }
-    //  else {
-    //    let tempProduct = productAddToCart.find(p => p.id == product.id);
-    //    if (tempProduct == null) {
-    //      productAddToCart.push(product);
-    //      this.productService.addProductToCart(productAddToCart);
-    //    }
-
-    //  }
-    //  //console.log(this.cartItemCount);
-    //  this.cartItemCount = productAddToCart.length;
-    //  // this.cartEvent.emit(this.cartItemCount);
-    //  this.sharedService.updateCartCount(this.cartItemCount);
-    //}
-  }
+        modalRef.result.then((result) => {
+            debugger
+            this.getAllProduct();
+        }).catch((error) => {
+            console.log(error);
+            debugger
+        });
+    }
 }

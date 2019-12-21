@@ -14,3 +14,13 @@ td {
   align-items: center;
   margin-top: 5px;
 }
+.sizeFont2 {
+  font-size: 1rem;
+}
+.round {
+  border-radius: 0.4rem;
+}
+
+.bg-gray {
+  background-color: rgb(255, 255, 255);
+}
