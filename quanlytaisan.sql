@@ -39,7 +39,7 @@ CREATE TABLE `employee` (
   `createdBy` int(18) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Pro','Nguyen Kim Hùng','hungnguyenkim@gmail.com','382880007','Hà nội','0','file-1576378881118','1575158400000','1625011200000','Sinh viên năm 3','Nam','1108425600',1,'Active'),(2,'V1','Nguyen kim hung','hungnguyenkim@gmail.com','382880007','ha noi','1108425600','','1108425600','1108425600','muon','Nam','1108425600',2,'Active'),(3,'jkkbb','Nguyễn Kim Hùng','hungnguyenkim12@gmail.com','33333333','hung','0','file-1576811106817','0','86400000','hung','Nam','1108425600',3,'Active'),(4,'jkkbb','hung','hungnguyenkim12@gmail.com','33333333','hung','1123200000',NULL,'1123200000','1548892800000','hung','Nam','1108425600',NULL,'Wait'),(5,'jkkbb','hungkmljh','hungnguyenkim12@gmail.com','33333333','hung','0',NULL,'1514764800000','1546300800000','hung','Nam','1108425600',NULL,'Active'),(6,NULL,'adf','hungnguyenkim12@gmail.com','669951566','hung','1576108800',NULL,'1577491200','1575676800','hung','Nam','1108425600',NULL,'Delete'),(7,'532212','adf','hungnguye@gmail.com','6','yeu','1576195200',NULL,'1576281600','1576886400','admin','Nữ','1108425600',NULL,'Delete'),(8,'jkkbb','gg','0979629183','4464','hung','1576800000',NULL,'1576886400','1576800000','hung','Nam','1108425600',NULL,'Active'),(9,'jkkbb','hung','hungnguyenkim12@gmail.com','2611','fdd','1575590400',NULL,'1576281600','1576713600','admin','Nam','1108425600',NULL,'Wait'),(10,'jkkbb','hung','hungnguyenkim12@gmail.com','2611','fdd','1575590400',NULL,'1576281600','1576713600','admin','Nam','1108425600',NULL,'Wait'),(11,'kskkd','adf','hungnguyenkim12@gmail.com','22','vi ey','1576108800',NULL,'1576886400','1576108800','admin','Nam','1108425600',NULL,'Active'),(12,'22','gfd','hungnguyenkim12@gmail.com','665665','hung','1576627200',NULL,'1576281600','1577145600','admin','Nam','1108425600',NULL,'Active'),(13,'22','gfd','hungnguyenkim12@gmail.com','665665','hung','1576627200',NULL,'1576281600','1577145600','admin','Nam','1108425600',NULL,'Active'),(14,'22','gfd','hungnguyenkim12@gmail.com','665665','hung','1576108800',NULL,'1577232000','1576281600','admin','Nam','1108425600',NULL,'Active'),(15,'22','gfd','hungnguyenkim12@gmail.com','665665','hung','1576713600',NULL,'1577491200','1576800000','admin','Nam','1108425600',NULL,'Active'),(16,'532212','gg','hungnguyenkim12@gmail.com','8855','fdd','1576195200',NULL,'1576800000','1576713600','hung','Nam','1108425600',NULL,'Active'),(17,'d','d','hungnguyenkim12@gmail.com','1','d','1576195200',NULL,'1577404800','1576281600','d','Nữ','1108425600',NULL,'Delete'),(18,'jkkbb','adf','hungnguyenkim12@gmail.com','56446','hung','1576022400000',NULL,'1577232000000','1577491200000','admin','Nam','1108425600',NULL,'Active'),(19,'hung','ggpppp','hungnguyenkim12@gmail.com','2555','hung','1575936000000',NULL,'1576713600000','1577491200000','hung','Nam','1108425600',1,'Active'),(20,'532212','yeu1','hungnguyenkim12@gmail.com','366556','hung','1576540800000',NULL,'1576368000000','1577836800000','admin','Nữ','1108425600',19,'Active'),(21,'532212','yeu2','hungnguyenkim12@gmail.com','366556','hung','1577232000000',NULL,'1292284800000','1552694400000','admin','Nữ','1576288413928',19,'Active'),(22,'123456','Nguyễn Kim','hungnguyenkim280399@gmail.com','986148033','Hải Dương','1576281600000',NULL,'1575158400000','1625011200000','Sinh Vien','Nam','1576423501149',1,'Active'),(23,'532212','met ','hungnguyenkim12@gmail.com','55','Hải Dương','1575676800000',NULL,'1575244800000','1654646400000','Sinh Vien','Nam','1576482935474',1,'Active');
+INSERT INTO `employee` VALUES (1,'Pro','Nguyen Kim','hungnguyenkim@gmail.com','382880007','Hà nội','915148800000','file-1576916006270','0','1209600000','Sinh viên năm 3','Nam','1108425600',1,'Active'),(31,NULL,'Nguyen Van dat',NULL,'11',NULL,NULL,'file-1576927716752',NULL,NULL,NULL,NULL,'1576920260633',31,'Active'),(32,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1576921525945',1,'Active'),(33,NULL,NULL,NULL,NULL,NULL,'0',NULL,'0','0',NULL,NULL,'1576927982909',1,'Delete'),(34,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1576937055858',1,'Active');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,7 +70,7 @@ CREATE TABLE `productincart` (
   `createdBy` int(18) DEFAULT NULL,
   `modifiedBy` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +79,7 @@ CREATE TABLE `productincart` (
 
 LOCK TABLES `productincart` WRITE;
 /*!40000 ALTER TABLE `productincart` DISABLE KEYS */;
-INSERT INTO `productincart` VALUES (1,1,2,5,'Wait','1108425600','1576489893753',1,1),(2,2,1,5,'DELETE','123566456464','1576489898950',1,1),(5,35,3,1,'Returned','1576662015787','1576662015787',3,3),(15,45,1,1,'DELETE','1576743163966','1576825877630',3,1),(16,46,4,1,'ACCEPT','1576743188212','1576743188212',3,3),(18,48,5,1,'Wait','1576822108219','1576822108219',3,3),(19,49,3,2,'Returned','1576822160693','1576825267430',3,1);
+INSERT INTO `productincart` VALUES (20,50,12,2,'Returned','1576920566827','1576920710003',31,1),(21,51,13,2,'Returned','1576920654581','1576928309092',31,1),(22,52,12,1,'Returned','1576921573693','1576928396752',32,1),(23,53,12,1,'Returned','1576928113430','1576928350928',33,1),(24,54,13,1,'Returned','1576928134504','1576929391361',33,1),(25,55,12,1,'Returned','1576928245613','1576928325926',31,1),(26,56,13,8,'Returned','1576928264188','1576928418041',31,1),(27,57,13,5,'Returned','1576929009781','1576929370295',31,1),(28,58,12,5,'Returned','1576930216792','1576930284611',31,1),(29,59,12,5,'ACCEPT','1576930256120','1576934313229',31,1),(30,60,12,1,'Returned','1576930755338','1576931326224',31,1),(31,61,13,1,'ACCEPT','1576934378632','1576936262762',31,1),(32,62,13,1,'ACCEPT','1576939219269','1576939320055',31,1),(33,63,18,1,'ACCEPT','1576939249440','1576939328656',31,1);
 /*!40000 ALTER TABLE `productincart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +103,7 @@ CREATE TABLE `productinfo` (
   `createdBy` int(11) DEFAULT NULL,
   `modifiedBy` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +112,7 @@ CREATE TABLE `productinfo` (
 
 LOCK TABLES `productinfo` WRITE;
 /*!40000 ALTER TABLE `productinfo` DISABLE KEYS */;
-INSERT INTO `productinfo` VALUES (1,'may chieu',' may nhap khau hang tot nhat','file-1576378881118','Điện tử',10,1,'1108425600','1576597679220',1,1),(2,'may tinh',' may nhap khau hang tot nhat','file-1576379037311','Điện tử',10,2,'1108425600','1576597684878',1,1),(3,'nha o',' may nhap khau hang tot nhat','file-1576377091734','Gia dụng',3,2,'1108425600','1576825267430',1,1),(4,'cong chuyen',' may nhap khau hang tot nhat','file-1576379997725','Điện tử',10,2,'1108425600','1576597634162',1,1),(5,'Galaxy Note','fds','file-1576055942734','Công nghệ',10,NULL,'1576313168918','1576597649652',NULL,1),(8,'Galaxy Note 15','mơ ước của nhà nhà','file-1576764403528','Công nghệ',1,NULL,'1576384133294','1576764403560',19,1),(9,'Galaxy Note1','gf','file-1576384628038','Điện tử',2,NULL,'1576384632683','1576597662463',1,1),(10,'Galaxy Note2','j','file-1576384682113','Gia dụng',1,NULL,'1576384704907','1576597671049',1,1);
+INSERT INTO `productinfo` VALUES (12,'Galaxy Note','Dung lượng pin 3500mAh và 4300mAh (tiêu chuẩn) là giá trị tiêu chuẩn đã được kiểm tra trong phòng thí nghiệm của bên thứ ba.','file-1576937703254','Điện tử',3,NULL,'1576920164315','1576937703280',1,1),(13,'Ti vi','Ti vi','file-1576939031294','Công nghệ',16,NULL,'1576920230251','1576939320055',1,1),(14,'Máy tính để bàn','- Mainboard: Asrock E3V5 WS socket 1151 full ATX dòng 4 khe ram full 64GB \n\n- CPU: Xeon E3-1230V5 (3.4Ghz turbo 3.8Ghz / 8M cache, 4 Cores, 8 Threads ) \n\n- VGA: MSI / ASUS GTX 1060 OC 2 fan bản 6GB / 192bit / DDR5 dựng hình - render - Game','file-1576937999305','Công nghệ',5,NULL,'1576937999335','1576937999313',1,1),(15,'Laptop dell','CPU: Intel® Core™ i5-10210U (1.6GHz up to 4.2GHz, 4 nhân 8 luồng, 6MB Cache)\nRam: 8GB LPDDR3 2133MHz\nỔ cứng: 512GB PCIe SSD\nVGA: NVIDIA GeForce MX250 2GB GDDR5\nDisplay: 14.0\" Full HD (1920 x 1080)','file-1576938210730','Điện tử',20,NULL,'1576938210758','1576938210742',1,1),(16,'Bàn ghế văn phòng','Bộ bàn ghê chuyên dành cho các văn phòng','file-1576938286389','Gia dụng',10,NULL,'1576938286413','1576938286396',1,1),(17,'Ghế ngồi ','Ghế tiện lợi di chuyển thích hợp cho mọi văn phòng','file-1576938377179','Gia dụng',15,NULL,'1576938377211','1576938377189',1,1),(18,'Máy in','Máy in hàng nhập khẩu chất lượng tuyệt vời','file-1576938443837','Điện tử',4,NULL,'1576938443862','1576939328656',1,1),(19,'laptop','Máy tính thích hợp cho dân văn phòng. ','file-1576938561135','Điện tử',3,NULL,'1576938561159','1576938561145',1,1),(20,'Máy chiếu','Máy chiếu công nghệ mới của Nhật','file-1576938609106','Công nghệ',10,NULL,'1576938609137','1576938609122',1,1),(21,'Máy in Canon','Máy in thế hệ mới','file-1576938662258','Khác',5,NULL,'1576938662284','1576938662267',1,1);
 /*!40000 ALTER TABLE `productinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,7 +136,7 @@ CREATE TABLE `productorder` (
   `createdBy` int(11) DEFAULT NULL,
   `modifiedBy` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +145,7 @@ CREATE TABLE `productorder` (
 
 LOCK TABLES `productorder` WRITE;
 /*!40000 ALTER TABLE `productorder` DISABLE KEYS */;
-INSERT INTO `productorder` VALUES (1,'may chieu',1,1,'1108425600','1108425666','Wait','1108425600','1576489893753',1,1),(2,'May tinh',1,1,'1108425600','1575158400000','Wait','1575158400000','1576489898950',1,1),(35,'nha o',3,NULL,'1575244800000','1576108800000','Returned','1576662015787','1576662015787',3,3),(45,'may chieu',3,1,'1576713600000','1576886400000','DELETE','1576743163966','1576825877630',3,1),(46,'cong chuyen',3,NULL,'1576713600000','1576972800000','ACCEPT','1576743188212','1576743188212',3,3),(48,'Galaxy Note',3,NULL,'1576886400000','1577577600000','Wait','1576822108219','1576822108219',3,3),(49,'nha o',3,1,'1576800000000','1576972800000','Returned','1576822160693','1576825267430',3,1);
+INSERT INTO `productorder` VALUES (50,'Galaxy Note',31,1,'1576886400000','1577059200000','Returned','1576920566827','1576920710003',31,1),(51,'Ti vi',31,1,'1576886400000','1577145600000','Returned','1576920654581','1576928309092',31,1),(52,'Galaxy Note',32,1,'1576886400000','1577318400000','Returned','1576921573693','1576928396752',32,1),(53,'Galaxy Note',33,1,'1576886400000','1577491200000','Returned','1576928113430','1576928350928',33,1),(54,'Ti vi',33,1,'1576886400000','1577145600000','Returned','1576928134504','1576929391361',33,1),(55,'Galaxy Note',31,1,'1576886400000','1577491200000','Returned','1576928245613','1576928325926',31,1),(56,'Ti vi',31,1,'1576886400000','1577491200000','Returned','1576928264188','1576928418041',31,1),(57,'Ti vi',31,1,'1576886400000','1577318400000','Returned','1576929009781','1576929370295',31,1),(58,'Galaxy Note',31,1,'1576972800000','1577404800000','Returned','1576930216792','1576930284611',31,1),(59,'Galaxy Note',31,1,'1577232000000','1577404800000','ACCEPT','1576930256120','1576934313229',31,1),(60,'Galaxy Note',31,1,'1576886400000','1576972800000','Returned','1576930755338','1576931326224',31,1),(61,'Ti vi',31,1,'1576886400000','1577491200000','ACCEPT','1576934378632','1576936262762',31,1),(62,'Ti vi',31,1,'1576972800000','1577491200000','ACCEPT','1576939219269','1576939320055',31,1),(63,'Máy in',31,1,'1576972800000','1577145600000','ACCEPT','1576939249440','1576939328656',31,1);
 /*!40000 ALTER TABLE `productorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,7 +166,7 @@ CREATE TABLE `users` (
   `modifiedBy` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +175,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin',1,'1108425600',1,NULL,'Admin'),(2,'user1','user1',1,'1108425600',1,NULL,'User'),(4,'hungnk','hungnk',6,NULL,NULL,NULL,'Admin'),(5,'','',2,NULL,NULL,NULL,'Admin'),(6,'','',2,NULL,NULL,NULL,'Admin'),(7,'hungnk','fg',1,NULL,NULL,NULL,'User'),(8,'aaa','aaa',1,NULL,NULL,NULL,'User'),(9,'aaa','aaa',1,NULL,NULL,NULL,'User'),(10,'aaa','aaa',1,NULL,NULL,NULL,'User'),(11,'aaa','aaa',3,NULL,NULL,NULL,'User'),(12,'hungnk','anh',2,NULL,NULL,NULL,'User'),(13,'hungnk','a',2,NULL,NULL,NULL,'User'),(14,'hun','te',2,NULL,NULL,NULL,'User'),(15,'tinh yeu','yeu',2,NULL,NULL,NULL,'User'),(16,'tinh yeull','yeu',2,NULL,NULL,NULL,'User'),(17,'tinh yeullpl','yeu',2,NULL,NULL,NULL,'User'),(18,'tinh yeullplggg','yeu',2,NULL,NULL,NULL,'User'),(19,'tinh yeullplgggl','yeu',2,NULL,NULL,NULL,'User'),(20,'hungnklpllk','h',2,NULL,NULL,NULL,'User'),(21,'kllk','f',6,NULL,NULL,NULL,'User'),(22,'kllkljjj','f',6,NULL,NULL,NULL,'User'),(23,'d','d',1,NULL,NULL,NULL,'Admin'),(24,'hung','r',2,NULL,NULL,NULL,'Admin'),(25,'nhkg','dđ',2,NULL,NULL,NULL,'User'),(26,'kdkfkgjkd','dđ',2,NULL,NULL,NULL,'User'),(27,'olpo','dđ',2,NULL,NULL,NULL,'User'),(28,'g','g',1,NULL,NULL,NULL,'User'),(29,'pp','p',3,NULL,NULL,NULL,'User'),(30,'i','hung',1,NULL,NULL,NULL,'User'),(31,'ii','hung',1,NULL,NULL,NULL,'User'),(32,'iikk','hung',1,NULL,NULL,NULL,'User'),(33,'iikklljj','hung',1,NULL,NULL,NULL,'User'),(34,'iikklljjvccccc','hung',1,NULL,NULL,NULL,'User'),(35,'nkkkh','hung',3,NULL,NULL,NULL,'User'),(36,'hungnklllllll','ghjk',1,NULL,NULL,NULL,'User'),(37,'hunllll','hkkj',2,NULL,NULL,NULL,'User'),(38,'theee','l',3,NULL,NULL,NULL,'User'),(39,'theeek','kk',2,NULL,NULL,NULL,'User'),(40,'hungnkpppp','bcb',3,NULL,NULL,NULL,'User'),(41,'looo','pll',1,NULL,NULL,NULL,'User'),(42,'hungnkv','hungg',1,'1576285965663',NULL,NULL,'Admin'),(43,'yeu','yeu',19,'1576287419231',1,'1','Admin'),(44,'yeu1','yeu1',1,'1576287593713',43,'43','User'),(45,'hungnk1','1',3,'1576288116874',1,'1','User'),(46,'hungnk5555','5555',20,'1576288578948',19,'19','Admin'),(47,'123','123',22,'1576423556345',1,'1','Admin'),(48,'met','met',23,'1576482978693',1,'1','Admin');
+INSERT INTO `users` VALUES (1,'admin','admin',1,'1108425600',1,NULL,'Admin'),(52,'user','user',31,'1576920260633',1,'1','User'),(53,'hung','hung',32,'1576921525945',1,'1','User'),(54,'k','k',33,'1576927982909',1,'1','User'),(55,'User1','User1',34,'1576937055858',1,'1','User');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -188,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-20 14:15:14
+-- Dump completed on 2019-12-21 23:40:14
